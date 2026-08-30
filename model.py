@@ -1,10 +1,3 @@
-"""
-CNN-ViT Hybrid model architecture (ResNet50 + DeiT-Small fusion).
-
-This must match the architecture used in training exactly, since it is used
-to load the saved checkpoint's state_dict. If you change the training
-architecture, update this file too.
-"""
 import torch
 import torch.nn as nn
 import timm
@@ -61,17 +54,7 @@ class CNNViTHybrid(nn.Module):
 
 
 def load_model(checkpoint_path, device="cpu"):
-    """
-    Loads a trained CNNViTHybrid model from a checkpoint saved by the
-    training script. Returns (model, classes, config) where classes is the
-    list of class names in the order the model was trained on, and config
-    is the dict of training-time settings (image_size, cnn_model, etc).
-
-    pretrained=False above is intentional: at inference time we are loading
-    fine-tuned weights, not ImageNet weights, and downloading ImageNet
-    weights here would be wasted bandwidth/time and could fail with no
-    internet access at deployment time.
-    """
+    
     checkpoint = torch.load(checkpoint_path, map_location=device)
 
     classes = checkpoint["classes"]
