@@ -1,12 +1,3 @@
-"""
-Streamlit app for the CNN-ViT Hybrid waste classifier.
-
-Run with:
-    streamlit run app.py
-
-Expects a trained checkpoint at model_weights/cnn_vit_hybrid_5class_merged.pth
-(see README.md for how to get one, or point CHECKPOINT_PATH at your own file).
-"""
 import os
 import io
 
